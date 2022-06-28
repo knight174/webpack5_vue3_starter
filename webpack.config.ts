@@ -41,14 +41,14 @@ module.exports = {
                 use: ["style-loader", "css-loader", "sass-loader", "postcss-loader"],
             },
             {
-                test: /\.(jpe?g|png|gif)$/,
+                test: /\.(jpe?g|png|gif|svg|bmp|tiff)$/,
                 type: "asset",
                 generator: {
-                    filename: 'images/[name]_[hash][ext]',
+                    filename: 'assets/images/[name]_[hash][ext]',
                 },
                 parser: {
                     dataUrlCondition: {
-                        maxSize: 8 * 1024 // 8kb （低于8kb都会压缩成 base64）
+                        maxSize: 8 * 1024
                     }
                 },
             },
