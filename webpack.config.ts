@@ -17,18 +17,18 @@ module.exports = {
         rules: [
             {
                 test: /\.vue$/,
-                use: 'vue-loader',
                 exclude: /node_modules/,
+                use: 'vue-loader',
             },
             {
                 test: /\.tsx?$/,
+                exclude: /node_modules/,
                 use: [
                     {
                         loader: 'ts-loader',
                         options: { appendTsSuffixTo: [/\.vue$/] }, // 这个很关键，不可删除
                     }
                 ],
-                exclude: /node_modules/,
             },
             {
                 test: /\.js$/,
@@ -39,10 +39,12 @@ module.exports = {
             },
             {
                 test: /\.s?css$/,
+                exclude: /node_modules/,
                 use: ["style-loader", "css-loader", "sass-loader", "postcss-loader"],
             },
             {
                 test: /\.(jpe?g|png|gif|svg|bmp|tiff)$/,
+                exclude: /node_modules/,
                 type: "asset",
                 generator: {
                     filename: 'assets/images/[name]_[hash][ext]',
@@ -55,6 +57,7 @@ module.exports = {
             },
             {
                 test: /\.(otf|eot|woff2?|ttf|svg)$/,
+                exclude: /node_modules/,
                 type: "asset",
             },
         ]
