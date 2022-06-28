@@ -4,6 +4,7 @@ const { VueLoaderPlugin } = require('vue-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { DefinePlugin } = require('webpack')
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const webpack = require('webpack');
 
 module.exports = {
     mode: 'development',
@@ -81,12 +82,14 @@ module.exports = {
             __VUE_PROD_DEVTOOLS__: false,
             __VUE_OPTIONS_API__: true,
         }),
+        new webpack.HotModuleReplacementPlugin()
     ],
     devServer: {
         static: path.join(__dirname, 'dist'), // 注意：Webpack5 中已用 static 替代 contentBase
         open: true, // 开启服务器时，自动打开页面
         compress: true, // 开启 gzip 压缩
         port: 9000, // 自定义端口号
+        hot: true, // 开启热更新
         // publicPath: '/' // 服务器访问静态资源的默认路径，优先级高于 output.publicPath
     },
 }
