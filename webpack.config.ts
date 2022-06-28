@@ -11,6 +11,9 @@ module.exports = {
     devtool: 'eval-cheap-module-source-map',
     // mode: 'production',
     // devtool: 'nosources-source-map',
+    optimization: { // 仅在开发配置，生产环境不需要这个，因为会默认添加
+        usedExports: true,
+    },
     entry: {
         path: './src/main.ts'
     },
@@ -85,7 +88,7 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin()
     ],
     devServer: {
-        static: path.join(__dirname, 'dist'), // 注意：Webpack5 中已用 static 替代 contentBase
+        static: path.join(__dirname, 'dist'),
         open: true, // 开启服务器时，自动打开页面
         compress: true, // 开启 gzip 压缩
         port: 9000, // 自定义端口号
