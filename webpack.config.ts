@@ -3,15 +3,20 @@ const path = require('path')
 const { VueLoaderPlugin } = require('vue-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { DefinePlugin } = require('webpack')
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
     mode: 'development',
+    devtool: 'eval-cheap-module-source-map',
+    // mode: 'production',
+    // devtool: 'nosources-source-map',
     entry: {
         path: './src/main.ts'
     },
     output: {
         filename: 'assets/js/[name].[contenthash:6].js',
-        path: path.resolve(__dirname, './dist')
+        path: path.resolve(__dirname, './dist'),
+        clean: true
     },
     module: {
         rules: [
@@ -66,6 +71,7 @@ module.exports = {
         extensions: ['.tsx', '.ts', '.js'],
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './index.html'),
