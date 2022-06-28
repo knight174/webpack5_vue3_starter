@@ -68,7 +68,8 @@ module.exports = {
     plugins: [
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './index.html')
+            template: path.resolve(__dirname, './index.html'),
+            favicon: path.resolve(__dirname, './public/favicon.ico') // 设置站点的 favicon，取代 index.html 模板中的 link:icon 标签
         }),
         new DefinePlugin({
             __VUE_PROD_DEVTOOLS__: false,
