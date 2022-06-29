@@ -3,13 +3,18 @@ const HTMLWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 const { DefinePlugin } = require('webpack')
 
+console.log('__dirname: ', __dirname);
+
 const commonConfig = {
   entry: './src/main.ts',
   output: {
     filename: 'js/[name].[contenthash:6].js',
     assetModuleFilename: 'assets/[name]_[hash][ext]',
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, '../dist'),
     clean: true
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
   },
   module: {
     rules: [
@@ -65,8 +70,8 @@ const commonConfig = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: './src/index.html',
-      favicon: path.resolve(__dirname, './public/favicon.ico')
+      template: './index.html',
+      favicon: path.resolve(__dirname, '../public/favicon.ico')
     }),
     new DefinePlugin({
       __VUE_PROD_DEVTOOLS__: false,
