@@ -76,7 +76,6 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './index.html'),
             favicon: path.resolve(__dirname, './public/favicon.ico') // 设置站点的 favicon，取代 index.html 模板中的 link:icon 标签
@@ -85,6 +84,7 @@ module.exports = {
             __VUE_PROD_DEVTOOLS__: false,
             __VUE_OPTIONS_API__: true,
         }),
+        new VueLoaderPlugin(),
         new webpack.HotModuleReplacementPlugin()
     ],
     devServer: {
@@ -92,7 +92,7 @@ module.exports = {
         open: true, // 开启服务器时，自动打开页面
         compress: true, // 开启 gzip 压缩
         port: 9000, // 自定义端口号
-        hot: true, // 开启热更新
+        hot: 'only', // 开启热更新
         // publicPath: '/' // 服务器访问静态资源的默认路径，优先级高于 output.publicPath
     },
 }
