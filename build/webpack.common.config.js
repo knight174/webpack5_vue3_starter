@@ -3,7 +3,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 const { DefinePlugin } = require('webpack')
 
-console.log('__dirname: ', __dirname);
+// __dirname: D:\my_reps\webpack5_vue3_starter\build
 
 const commonConfig = {
   entry: './src/main.ts',

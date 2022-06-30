@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 
 const devConfig = {
   mode: 'development',
@@ -22,10 +21,7 @@ const devConfig = {
         }
       }
     }
-  },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ]
+  }
 }
 
 module.exports = devConfig;
