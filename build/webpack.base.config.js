@@ -65,7 +65,7 @@ const commonConfig = {
           type: "asset",
           generator: {
               filename: 'assets/fonts/[name]_[hash][ext]',
-          },
+          }
       },
     ]
   },
