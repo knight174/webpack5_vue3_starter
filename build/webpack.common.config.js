@@ -2,6 +2,7 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 const { DefinePlugin } = require('webpack')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 // __dirname: D:\my_reps\webpack5_vue3_starter\build
 
@@ -43,7 +44,7 @@ const commonConfig = {
       {
           test: /\.s?css$/,
           exclude: /node_modules/,
-          use: ["style-loader", "css-loader", "sass-loader", "postcss-loader"],
+          use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader", "postcss-loader"],
       },
       {
           test: /\.(jpe?g|png|gif|svg|bmp|tiff)$/,
@@ -77,7 +78,8 @@ const commonConfig = {
       __VUE_PROD_DEVTOOLS__: false,
       __VUE_OPTIONS_API__: true,
     }),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new MiniCssExtractPlugin()
   ]
 };
 
