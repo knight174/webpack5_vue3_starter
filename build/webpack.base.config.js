@@ -1,4 +1,4 @@
-const path = require('path');
+const { resolve } = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 const { DefinePlugin } = require('webpack')
@@ -11,7 +11,7 @@ const commonConfig = {
   output: {
     filename: 'js/[name].[contenthash:6].js',
     assetModuleFilename: 'assets/[name]_[hash][ext]',
-    path: path.resolve(__dirname, '../dist'),
+    path: resolve(__dirname, '../dist'),
     clean: true
   },
   resolve: {
@@ -75,7 +75,7 @@ const commonConfig = {
   plugins: [
     new HTMLWebpackPlugin({
       template: './index.html',
-      favicon: path.resolve(__dirname, '../public/favicon.ico')
+      favicon: resolve(__dirname, '../public/favicon.ico')
     }),
     new DefinePlugin({
       __VUE_PROD_DEVTOOLS__: false,
