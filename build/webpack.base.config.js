@@ -16,6 +16,9 @@ const commonConfig = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+    alias: {
+      '@': resolve(__dirname, '../src')
+    }
   },
   module: {
     rules: [
