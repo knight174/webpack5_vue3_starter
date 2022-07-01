@@ -1,0 +1,30 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import { useStore } from 'vuex';
+const store = useStore()
+const firstName = ref('')
+
+function updateName() {
+  store.commit('updateName', firstName)
+}
+</script>
+
+<template>
+  <h1>Hello, Vuex!</h1>
+  <label for="name-input" class="form-group">
+    <h1>Update First Name: </h1>
+    <input type="text" id="name-input" :placeholder="firstName ? '' : 'Please input your name.'" v-model="firstName">
+  </label>
+  <button @click="updateName">Update User Name</button>
+</template>
+
+<style scoped>
+.form-group {
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+}
+.form-group h1 {
+  display: inline;
+}
+</style>

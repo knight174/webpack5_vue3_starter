@@ -1,15 +1,20 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-// import HelloWorld from './components/HelloWorld.vue'
+import CurrentUser from './components/CurrentUser.vue';
 </script>
 
 <template>
   <img alt="Vue logo" src="@/assets/logo.png" />
-  <!-- <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" /> -->
+  <CurrentUser />
   <nav>
     <router-link :to="{name: 'Home'}">Home</router-link> |
-    <router-link :to="{name: 'Axios'}">Axios</router-link>
+    <router-link :to="{name: 'Axios'}">Axios</router-link> |
+    <router-link :to="{name: 'Vuex'}">Vuex</router-link>
   </nav>
   <router-view></router-view>
 </template>
+
+<style>
+.user-name {
+  font-weight: normal;
+}
+</style>
