@@ -25,6 +25,7 @@ specifiers:
   typescript: ^4.7.3
   vue: ^3.2.25
   vue-loader: ^17.0.0
+  vue-router: ^4.0.16
   vue-tsc: ^0.34.7
   webpack: ^5.73.0
   webpack-bundle-analyzer: ^4.5.0
@@ -37,6 +38,7 @@ dependencies:
   '@babel/runtime-corejs3': 7.18.6
   core-js: 3.23.3
   vue: 3.2.37
+  vue-router: 4.0.16_vue@3.2.37
 
 devDependencies:
   '@babel/core': 7.18.6
@@ -1679,6 +1681,10 @@ packages:
     dependencies:
       '@vue/compiler-dom': 3.2.37
       '@vue/shared': 3.2.37
+
+  /@vue/devtools-api/6.2.0:
+    resolution: {integrity: sha512-pF1G4wky+hkifDiZSWn8xfuLOJI1ZXtuambpBEYaf7Xaf6zC/pM29rvAGpd3qaGXnr4BAXU1Pxz/VfvBGwexGA==}
+    dev: false
 
   /@vue/reactivity-transform/3.2.37:
     resolution: {integrity: sha512-IWopkKEb+8qpu/1eMKVeXrK0NLw9HicGviJzhJDEyfxTR9e1WtpnnbYkJWurX6WwoFP0sz10xQg8yL8lgskAZg==}
@@ -4758,6 +4764,15 @@ packages:
       loader-utils: 2.0.2
       webpack: 5.73.0_webpack-cli@4.10.0
     dev: true
+
+  /vue-router/4.0.16_vue@3.2.37:
+    resolution: {integrity: sha512-JcO7cb8QJLBWE+DfxGUL3xUDOae/8nhM1KVdnudadTAORbuxIC/xAydC5Zr/VLHUDQi1ppuTF5/rjBGzgzrJNA==}
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      '@vue/devtools-api': 6.2.0
+      vue: 3.2.37
+    dev: false
 
   /vue-tsc/0.34.17_typescript@4.7.3:
     resolution: {integrity: sha512-jzUXky44ZLHC4daaJag7FQr3idlPYN719/K1eObGljz5KaS2UnVGTU/XSYCd7d6ampYYg4OsyalbHyJIxV0aEQ==}
