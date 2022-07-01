@@ -27,6 +27,7 @@ specifiers:
   vue-loader: ^17.0.0
   vue-router: ^4.0.16
   vue-tsc: ^0.34.7
+  vuex: ^4.0.2
   webpack: ^5.73.0
   webpack-bundle-analyzer: ^4.5.0
   webpack-cli: ^4.10.0
@@ -39,6 +40,7 @@ dependencies:
   core-js: 3.23.3
   vue: 3.2.37
   vue-router: 4.0.16_vue@3.2.37
+  vuex: 4.0.2_vue@3.2.37
 
 devDependencies:
   '@babel/core': 7.18.6
@@ -4792,6 +4794,15 @@ packages:
       '@vue/runtime-dom': 3.2.37
       '@vue/server-renderer': 3.2.37_vue@3.2.37
       '@vue/shared': 3.2.37
+    dev: false
+
+  /vuex/4.0.2_vue@3.2.37:
+    resolution: {integrity: sha512-M6r8uxELjZIK8kTKDGgZTYX/ahzblnzC4isU1tpmEuOIIKmV+TRdc+H4s8ds2NuZ7wpUTdGRzJRtoj+lI+pc0Q==}
+    peerDependencies:
+      vue: ^3.0.2
+    dependencies:
+      '@vue/devtools-api': 6.2.0
+      vue: 3.2.37
     dev: false
 
   /watchpack/2.4.0:
