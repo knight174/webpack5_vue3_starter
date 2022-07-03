@@ -46,7 +46,6 @@ const commonConfig = {
       },
       {
           test: /\.s?css$/,
-          exclude: /node_modules/,
           use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader", "postcss-loader"],
       },
       {

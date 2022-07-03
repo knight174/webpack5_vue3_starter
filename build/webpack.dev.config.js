@@ -1,4 +1,7 @@
+const AutoImport = require('unplugin-auto-import/webpack')
+const Components = require('unplugin-vue-components/webpack')
 const path = require('path');
+const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 
 const devConfig = {
   mode: 'development',
@@ -22,6 +25,14 @@ const devConfig = {
       }
     }
   },
+  plugins: [
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()],
+    }),
+  ],
 }
 
 module.exports = devConfig;

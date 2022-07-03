@@ -15,7 +15,7 @@ function updateName() {
     <h1>Update First Name: </h1>
     <input type="text" id="name-input" :placeholder="firstName ? '' : 'Please input your name.'" v-model="firstName">
   </label>
-  <button @click="updateName">Update User Name</button>
+  <el-button @click="updateName">Update User Name</el-button>
 </template>
 
 <style scoped>
