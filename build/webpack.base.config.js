@@ -3,6 +3,10 @@ const HTMLWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 const { DefinePlugin } = require('webpack')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+// element plus 自动加载
+const AutoImport = require('unplugin-auto-import/webpack')
+const Components = require('unplugin-vue-components/webpack')
+const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 
 // __dirname: D:\my_reps\webpack5_vue3_starter\build
 
@@ -23,9 +27,8 @@ const commonConfig = {
   module: {
     rules: [
       {
-          test: /\.vue$/,
-          exclude: /node_modules/,
-          use: 'vue-loader',
+        test: /\.vue$/,
+        use: 'vue-loader',
       },
       {
           test: /\.tsx?$/,
@@ -42,7 +45,7 @@ const commonConfig = {
           exclude: /node_modules/,
           use: {
               loader: 'babel-loader'
-          }
+          },
       },
       {
           test: /\.s?css$/,
@@ -81,7 +84,15 @@ const commonConfig = {
       __VUE_OPTIONS_API__: true,
     }),
     new VueLoaderPlugin(),
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].css'
+    }),
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()],
+    }),
   ]
 };
 
