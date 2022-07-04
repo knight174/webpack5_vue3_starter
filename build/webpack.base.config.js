@@ -85,7 +85,7 @@ const commonConfig = {
     }),
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].css'
+      filename: 'style/[name].[contenthash:6].css'
     }),
     AutoImport({
       resolvers: [ElementPlusResolver()],
