@@ -9,6 +9,7 @@
   "dependencies": {
     "@babel/runtime": "^7.18.6",
     "@babel/runtime-corejs3": "^7.18.6",
+    "axios": "^0.27.2",
     "core-js": "3",
     "element-plus": "^2.2.7",
     "vue": "^3.2.25",
