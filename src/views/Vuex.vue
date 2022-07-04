@@ -19,13 +19,14 @@ function updateName() {
   <el-button @click="updateName">Update User Name</el-button>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .form-group {
   display: block;
   width: 50%;
   margin: 0 auto;
-}
-.form-group h1 {
-  display: inline;
+  h1 {
+    display: inline;
+    margin-right: 10px;
+  }
 }
 </style>

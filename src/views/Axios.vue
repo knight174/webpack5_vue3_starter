@@ -37,9 +37,9 @@ onMounted(async () => {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .content {
-  border: 1px solid red;
+  border: 1px solid $red;
   width: 500px;
   min-height: 500px;
   margin: auto;

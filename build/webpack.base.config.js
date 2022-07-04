@@ -49,7 +49,19 @@ const commonConfig = {
       },
       {
           test: /\.s?css$/,
-          use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader", "postcss-loader"],
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          {
+            loader: "sass-loader",
+            options: {
+              additionalData: `
+                @import "~@/style/_var.scss";
+              `,
+            }
+          },
+          "postcss-loader"
+        ],
       },
       {
           test: /\.(jpe?g|png|gif|svg|bmp|tiff)$/,
