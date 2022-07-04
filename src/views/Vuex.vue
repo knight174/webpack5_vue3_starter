@@ -5,7 +5,8 @@ const store = useStore()
 const firstName = ref('')
 
 function updateName() {
-  store.commit('updateName', firstName)
+  store.commit('updateName', firstName.value)
+  firstName.value = ''
 }
 </script>
 

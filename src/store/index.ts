@@ -11,6 +11,7 @@ export default createStore({
   },
   mutations: {
     updateName(state: typeof defaultState, name: string) {
+      if (!name) return false
       state.firstName = name
     }
   },
