@@ -1,8 +1,8 @@
-const { resolve } = require('path');
+const { resolve } = require('path')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 const { DefinePlugin } = require('webpack')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // element plus 自动加载
 const AutoImport = require('unplugin-auto-import/webpack')
 const Components = require('unplugin-vue-components/webpack')
@@ -28,62 +28,62 @@ const commonConfig = {
     rules: [
       {
         test: /\.vue$/,
-        use: 'vue-loader',
+        use: 'vue-loader'
       },
       {
-          test: /\.tsx?$/,
-          exclude: /node_modules/,
-          use: [
-              {
-                  loader: 'ts-loader',
-                  options: { appendTsSuffixTo: [/\.vue$/] }, // 这个很关键，不可删除
-              }
-          ],
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'ts-loader',
+            options: { appendTsSuffixTo: [/\.vue$/] } // 这个很关键，不可删除
+          }
+        ]
       },
       {
-          test: /\.js$/,
-          exclude: /node_modules/,
-          use: {
-              loader: 'babel-loader'
-          },
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
       },
       {
-          test: /\.s?css$/,
+        test: /\.s?css$/,
         use: [
           MiniCssExtractPlugin.loader,
-          "css-loader",
+          'css-loader',
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
             options: {
               additionalData: `
                 @import "~@/style/_var.scss";
-              `,
+              `
             }
           },
-          "postcss-loader"
-        ],
+          'postcss-loader'
+        ]
       },
       {
-          test: /\.(jpe?g|png|gif|svg|bmp|tiff)$/,
-          exclude: /node_modules/,
-          type: "asset",
-          generator: {
-              filename: 'assets/images/[name]_[hash][ext]',
-          },
-          parser: {
-              dataUrlCondition: {
-                  maxSize: 8 * 1024
-              }
-          },
-      },
-      {
-          test: /\.(otf|eot|woff2?|ttf|svg)$/,
-          exclude: /node_modules/,
-          type: "asset",
-          generator: {
-              filename: 'assets/fonts/[name]_[hash][ext]',
+        test: /\.(jpe?g|png|gif|svg|bmp|tiff)$/,
+        exclude: /node_modules/,
+        type: 'asset',
+        generator: {
+          filename: 'assets/images/[name]_[hash][ext]'
+        },
+        parser: {
+          dataUrlCondition: {
+            maxSize: 8 * 1024
           }
+        }
       },
+      {
+        test: /\.(otf|eot|woff2?|ttf|svg)$/,
+        exclude: /node_modules/,
+        type: 'asset',
+        generator: {
+          filename: 'assets/fonts/[name]_[hash][ext]'
+        }
+      }
     ]
   },
   plugins: [
@@ -93,19 +93,19 @@ const commonConfig = {
     }),
     new DefinePlugin({
       __VUE_PROD_DEVTOOLS__: false,
-      __VUE_OPTIONS_API__: true,
+      __VUE_OPTIONS_API__: true
     }),
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
       filename: 'style/[name].[contenthash:6].css'
     }),
     AutoImport({
-      resolvers: [ElementPlusResolver()],
+      resolvers: [ElementPlusResolver()]
     }),
     Components({
-      resolvers: [ElementPlusResolver()],
-    }),
+      resolvers: [ElementPlusResolver()]
+    })
   ]
-};
+}
 
-module.exports = commonConfig;
+module.exports = commonConfig

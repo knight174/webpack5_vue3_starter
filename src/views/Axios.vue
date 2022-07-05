@@ -5,7 +5,7 @@ import axios from '../utils/axios'
 const username: string = 'Knight174'
 
 interface AxiosVue {
-  user: object,
+  user: object
   loading: boolean
 }
 
@@ -27,7 +27,6 @@ onMounted(async () => {
     console.error(err)
   }
 })
-
 </script>
 
 <template>

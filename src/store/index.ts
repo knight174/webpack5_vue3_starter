@@ -16,7 +16,7 @@ export default createStore({
     }
   },
   actions: {
-    updateName({commit, state}) {
+    updateName({ commit, state }) {
       commit({
         type: 'updateName',
         payload: state.firstName

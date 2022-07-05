@@ -1,4 +1,4 @@
-const path = require('path');
+const path = require('path')
 
 const devConfig = {
   mode: 'development',
@@ -21,7 +21,7 @@ const devConfig = {
         }
       }
     }
-  },
+  }
 }
 
-module.exports = devConfig;
+module.exports = devConfig
