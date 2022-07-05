@@ -9,7 +9,7 @@ interface AxiosVue {
   loading: boolean
 }
 
-let state: AxiosVue = reactive({
+const state: AxiosVue = reactive({
   user: {},
   loading: true
 })
@@ -24,7 +24,7 @@ onMounted(async () => {
     state.user = { ...data }
     state.loading = false
   } catch (err) {
-    console.error(err)
+    throw new Error(err)
   }
 })
 </script>
