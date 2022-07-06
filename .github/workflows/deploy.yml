@@ -2,7 +2,7 @@ name: deploy
 
 on:
   push:
-    branches: [master] # master 分支有 push 时触发
+    branches: [master, main] # master 分支有 push 时触发
 
 jobs:
   deploy:
@@ -28,4 +28,4 @@ jobs:
           github_token: ${{ secrets.VUE3_DEPLOY }} # secret 名
           user_name: ${{ secrets.MY_USER_NAME }}
           user_email: ${{ secrets.MY_USER_EMAIL }}
-          commit_message: Update Vite2.x + Vue3.x + TypeScript Starter # 部署时的 git 提交信息，自由填写
+          # commit_message: Update Vite2.x + Vue3.x + TypeScript Starter # 部署时的 git 提交信息，自由填写
