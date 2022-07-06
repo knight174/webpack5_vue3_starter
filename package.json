@@ -6,7 +6,9 @@
     "dev": "webpack server --mode=development --progress",
     "build": "webpack --mode=production --progress",
     "prepare": "husky install",
-    "commit": "cz"
+    "commit": "cz",
+    "generateAnalyzFile": "webpack --profile --json > stats.json",
+    "analyz": "webpack-bundle-analyzer --port 8888 ./dist/stats.json"
   },
   "lint-staged": {
     "*.{vue,js,ts}": "eslint --fix"
