@@ -1,16 +1,36 @@
-# Vue 3 + TypeScript + Vite
+# webpack5_vue3_starter
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## Installation
 
-## Recommended IDE Setup
+```pnpm i```
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+## Usage
+### Development server
+```pnpm run dev```
 
-## Type Support For `.vue` Imports in TS
+### Production build
+```pnpm run build```
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's Take Over mode by following these steps:
-
-1. Run `Extensions: Show Built-in Extensions` from VS Code's command palette, look for `TypeScript and JavaScript Language Features`, then right click and select `Disable (Workspace)`. By default, Take Over mode will enable itself if the default TypeScript extension is disabled.
-2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
-
-You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
+### Features
+- [pnpm](https://pnpm.io/) Fast, disk space efficient package manager
+- [webpack](https://webpack.js.org/) Webpack is a static module bundler for modern JavaScript applications.
+- [Babel](https://babeljs.io/) Babel is a JavaScript compiler.
+- [Sass](https://sass-lang.com/) CSS preprocessor
+- [PostCSS](https://postcss.org/) A tool for transforming CSS with JavaScript
+- [Vue3](https://vuejs.org/) The Progressive
+JavaScript Framework
+- [Vue Router](https://router.vuejs.org/) The official router for Vue.js.
+- [Vuex](https://vuex.vuejs.org/) Vuex is a state management pattern + library for Vue.js applications.
+- [TypeScript](https://www.typescriptlang.org/) TypeScript is JavaScript with syntax for types.
+- [Element Plus](https://element-plus.org/zh-CN/) a Vue 3 based component library for designers and developers
+- [Axios](https://axios-http.com/) Promise based HTTP client for the browser and node.js
+- [EditorConfig](https://editorconfig.org/) EditorConfig helps maintain consistent coding styles for multiple developers working on the same project across various editors and IDEs. 
+- [ESLint](https://eslint.org/) Find and fix problems in your JavaScript code
+- [Prettier](https://prettier.io/) Prettier is an opinionated code formatter
+- [husky](https://typicode.github.io/husky/#/) You can use it to lint your commit messages, run tests, lint code, etc... when you commit or push.
+- [lint-staged](https://github.com/okonet/lint-staged#readme) Run linters against staged git files and don't let 💩 slip into your code base!
+- [Commitizen](https://github.com/commitizen/cz-cli) When you commit with Commitizen, you'll be prompted to fill out any required commit fields at commit time. 
+- [Commitlint](https://commitlint.js.org/#/) It helps your team adhering to a commit convention.
+- [Github Actions](https://docs.github.com/en/actions) Automate, customize, and execute your software development workflows right in your repository with GitHub Actions. 
+## Author
+[Eric Knight](https://github.com/Knight174)
