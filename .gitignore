@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# generator by BundleAnalyzerPlugin in webpack
+stats.json
