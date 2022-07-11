@@ -3,7 +3,28 @@ const path = require('path')
 const devConfig = {
   mode: 'development',
   optimization: {
-    usedExports: true
+    usedExports: true,
+    splitChunks: {
+      chunks: 'all', // 同步或异步
+      minSize: 100, // 自己设置最小分割大小
+      cacheGroups: {
+        // 缓存组
+        // 打包第三方库
+        defaultVendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+          reuseExistingChunk: true
+          // filename: 'vendors.js'
+        },
+        // 打包项目中的公共模块
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
+          // filename: 'common.js'
+        }
+      }
+    }
   },
   devtool: 'eval-cheap-module-source-map',
   devServer: {
