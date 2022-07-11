@@ -19,7 +19,7 @@ const commonConfig = {
     clean: true
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.ts', '.js'],
     alias: {
       '@': resolve(__dirname, '../src')
     }
@@ -31,20 +31,17 @@ const commonConfig = {
         use: 'vue-loader'
       },
       {
-        test: /\.tsx?$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'ts-loader',
-            options: { appendTsSuffixTo: [/\.vue$/] } // 这个很关键，不可删除
-          }
-        ]
-      },
-      {
-        test: /\.js$/,
+        test: /\.([jt]sx?)?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
+          loader: 'swc-loader',
+          options: {
+            jsc: {
+              parser: {
+                syntax: 'typescript'
+              }
+            }
+          }
         }
       },
       {
