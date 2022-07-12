@@ -4,6 +4,7 @@ const devConfig = {
   mode: 'development',
   optimization: {
     usedExports: true,
+    runtimeChunk: true,
     splitChunks: {
       chunks: 'all', // 同步或异步
       minSize: 100, // 自己设置最小分割大小
@@ -26,12 +27,15 @@ const devConfig = {
       }
     }
   },
+  cache: {
+    type: 'filesystem'
+  },
   devtool: 'eval-cheap-module-source-map',
   devServer: {
     static: path.join(__dirname, 'dist'),
     open: true, // 开启服务器时，自动打开页面
     compress: true, // 开启 gzip 压缩
-    port: 9000, // 自定义端口号
+    port: 8080, // 自定义端口号
     hot: true, // 开启热更新
     proxy: {
       '/api': {

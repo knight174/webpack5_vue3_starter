@@ -3,6 +3,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 const { DefinePlugin } = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 // element plus 自动加载
 const AutoImport = require('unplugin-auto-import/webpack')
 const Components = require('unplugin-vue-components/webpack')
@@ -19,10 +20,18 @@ const commonConfig = {
     clean: true
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.ts', '.js'],
     alias: {
       '@': resolve(__dirname, '../src')
     }
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        parallel: 4 // 是否并⾏打包（开 4 核）
+      })
+    ]
   },
   module: {
     rules: [
@@ -31,20 +40,17 @@ const commonConfig = {
         use: 'vue-loader'
       },
       {
-        test: /\.tsx?$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'ts-loader',
-            options: { appendTsSuffixTo: [/\.vue$/] } // 这个很关键，不可删除
-          }
-        ]
-      },
-      {
-        test: /\.js$/,
+        test: /\.([jt]sx?)?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
+          loader: 'swc-loader',
+          options: {
+            jsc: {
+              parser: {
+                syntax: 'typescript'
+              }
+            }
+          }
         }
       },
       {
