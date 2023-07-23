@@ -33,4 +33,4 @@ JavaScript Framework
 - [Commitlint](https://commitlint.js.org/#/) It helps your team adhering to a commit convention.
 - [Github Actions](https://docs.github.com/en/actions) Automate, customize, and execute your software development workflows right in your repository with GitHub Actions. 
 ## Author
-[Eric Knight](https://github.com/Knight174)
+[Knight174](https://github.com/Knight174)
