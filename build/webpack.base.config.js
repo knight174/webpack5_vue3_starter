@@ -46,16 +46,15 @@ const commonConfig = {
       {
         test: /\.([jt]sx?)?$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'swc-loader',
-          options: {
-            jsc: {
-              parser: {
-                syntax: 'typescript'
-              }
+        use: [
+          {
+            loader: 'esbuild-loader',
+            options: {
+              loader: 'tsx', // 可以是'ts'或'tsx'，取决于您的项目设置
+              target: 'es2015' // 目标浏览器或Node.js版本
             }
           }
-        }
+        ]
       },
       {
         test: /\.s?css$/,
