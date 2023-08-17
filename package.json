@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "webpack server --mode=development --progress",
     "build": "webpack --mode=production --progress",
+    "build:dll": "webpack --config ./build/webpack.dll.config.js --progress",
     "prepare": "husky install",
     "commit": "cz",
     "generateAnalyzFile": "webpack --profile --json > stats.json",
