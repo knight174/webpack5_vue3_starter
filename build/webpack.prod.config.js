@@ -15,7 +15,7 @@ const prodConfig = {
     maxAssetSize: 30000000
   },
   optimization: {
-    runtimeChunk: true
+    usedExports: true // 消除未使用的导出（exports）代码
   }
 }
 

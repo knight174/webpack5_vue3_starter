@@ -27,6 +27,9 @@ const commonConfig = {
     }
   },
   optimization: {
+    moduleIds: 'deterministic', // 长缓存：根据模块内容分配 id
+    runtimeChunk: true, // 独立运行时代码
+    // 代码压缩
     minimize: true,
     minimizer: [
       new TerserPlugin({

@@ -3,8 +3,6 @@ const path = require('path')
 const devConfig = {
   mode: 'development',
   optimization: {
-    usedExports: true,
-    runtimeChunk: true,
     splitChunks: {
       chunks: 'all', // 同步或异步
       minSize: 100, // 自己设置最小分割大小
