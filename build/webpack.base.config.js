@@ -3,6 +3,8 @@ const HTMLWebpackPlugin = require('html-webpack-plugin')
 // vue
 const { VueLoaderPlugin } = require('vue-loader')
 const { DefinePlugin } = require('webpack')
+// esbuild 构建优化
+const { EsbuildPlugin } = require('esbuild-loader')
 // css
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // 打包优化
@@ -32,8 +34,10 @@ const commonConfig = {
     // 代码压缩
     minimize: true,
     minimizer: [
-      new TerserPlugin({
-        parallel: 4 // 是否并⾏打包（开 4 核）
+      new EsbuildPlugin({
+        target: 'es2015',
+        minify: true, // 压缩代码
+        legalComments: 'none' // 移除注释
       })
     ]
   },
@@ -106,7 +110,8 @@ const commonConfig = {
       __VUE_PROD_DEVTOOLS__: false, // 禁用 Vue 生产环境下的开发工具
       __VUE_OPTIONS_API__: true // 启用 vue2 option api
     }),
-    new VueLoaderPlugin(), // 解析 .vue 单文件
+    // 解析 .vue 单文件
+    new VueLoaderPlugin(),
     // CSS 优化：生成独立的 CSS 文件
     new MiniCssExtractPlugin({
       filename: 'style/[name].[contenthash:6].css'
