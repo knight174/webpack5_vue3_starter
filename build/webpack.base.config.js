@@ -1,15 +1,16 @@
 const { resolve } = require('path')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
+// vue
 const { VueLoaderPlugin } = require('vue-loader')
 const { DefinePlugin } = require('webpack')
+// css
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+// 打包优化
 const TerserPlugin = require('terser-webpack-plugin')
 // element plus 自动加载
 const AutoImport = require('unplugin-auto-import/webpack')
 const Components = require('unplugin-vue-components/webpack')
 const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
-
-// __dirname: D:\my_reps\webpack5_vue3_starter\build
 
 const commonConfig = {
   entry: './src/main.ts',
@@ -93,18 +94,22 @@ const commonConfig = {
     ]
   },
   plugins: [
+    // 指定 html 模板
     new HTMLWebpackPlugin({
       template: './index.html',
       favicon: resolve(__dirname, '../public/favicon.ico')
     }),
+    // Vue 插件
     new DefinePlugin({
-      __VUE_PROD_DEVTOOLS__: false,
-      __VUE_OPTIONS_API__: true
+      __VUE_PROD_DEVTOOLS__: false, // 禁用 Vue 生产环境下的开发工具
+      __VUE_OPTIONS_API__: true // 启用 vue2 option api
     }),
-    new VueLoaderPlugin(),
+    new VueLoaderPlugin(), // 解析 .vue 单文件
+    // CSS 优化：生成独立的 CSS 文件
     new MiniCssExtractPlugin({
       filename: 'style/[name].[contenthash:6].css'
     }),
+    // Element UI 优化
     AutoImport({
       resolvers: [ElementPlusResolver()]
     }),
