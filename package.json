@@ -1,7 +1,15 @@
 {
   "name": "webpack5_vue3_starter",
-  "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "author": "Eric Chen <eric@ericchenart.com>",
+  "repository": "Knight174/webpack5_vue3_starter",
+  "license": "MIT",
+  "keywords": [
+    "webpack",
+    "vue3",
+    "typescript",
+    "start template"
+  ],
   "scripts": {
     "dev": "webpack server --mode=development --progress",
     "build": "webpack --mode=production --progress",
