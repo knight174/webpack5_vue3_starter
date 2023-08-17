@@ -8,12 +8,13 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Check out this repo
+        uses: actions/checkout@v2
 
-      - name: Setup Node.js v14.x
+      - name: Setup Node.js v18.x
         uses: actions/setup-node@v1
         with:
-          node-version: '14.x'
+          node-version: '18.x'
 
       - name: Install
         run: npm install # 安装依赖
