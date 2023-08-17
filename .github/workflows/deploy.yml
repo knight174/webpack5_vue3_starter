@@ -17,7 +17,7 @@ jobs:
           node-version: '18.x'
 
       - name: Install
-        run: npm install # 安装依赖
+        run: npm ci # 安装依赖
 
       - name: Build
         run: npm run build # 打包
