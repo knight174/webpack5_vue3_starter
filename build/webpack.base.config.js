@@ -21,7 +21,7 @@ const commonConfig = {
     clean: true
   },
   resolve: {
-    extensions: ['.ts', '.js'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
     alias: {
       '@': resolve(__dirname, '../src')
     }
