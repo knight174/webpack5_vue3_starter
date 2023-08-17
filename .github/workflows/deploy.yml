@@ -17,10 +17,10 @@ jobs:
           node-version: '18.x'
 
       - name: Install
-        run: npm ci # 安装依赖
+        run: npm i
 
       - name: Build
-        run: npm run build # 打包
+        run: npm run build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3 # 使用部署到 GitHub pages 的 action

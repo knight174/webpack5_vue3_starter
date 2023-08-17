@@ -43,7 +43,7 @@
     "@types/node": "^18.0.0",
     "@typescript-eslint/eslint-plugin": "^5.30.5",
     "@typescript-eslint/parser": "^5.30.5",
-    "ajv": "^8.11.0",
+    "ajv": "6.12.6",
     "ajv-keywords": "^3.5.2",
     "autoprefixer": "^10.4.7",
     "babel-loader": "^8.2.5",
