@@ -3,6 +3,7 @@
     [
       "@babel/preset-env",
       {
+        "modules": "auto", // 根据目标环境自动选择合适的模块转译方式
         "useBuiltIns": "usage", // 按需引入 corejs 中的模块
         "corejs": 3, // 核心 js 版本
         "targets": "> 0.25%, not dead" // 浏览器支持范围
