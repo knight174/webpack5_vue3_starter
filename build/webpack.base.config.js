@@ -3,8 +3,6 @@ const HTMLWebpackPlugin = require('html-webpack-plugin')
 // vue
 const { VueLoaderPlugin } = require('vue-loader')
 const { DefinePlugin } = require('webpack')
-// esbuild 构建优化
-const { EsbuildPlugin } = require('esbuild-loader')
 // css
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 // 打包优化
@@ -34,10 +32,8 @@ const commonConfig = {
     // 代码压缩
     minimize: true,
     minimizer: [
-      new EsbuildPlugin({
-        target: 'es2015',
-        minify: true, // 压缩代码
-        legalComments: 'none' // 移除注释
+      new TerserPlugin({
+        minify: TerserPlugin.swcMinify
       })
     ]
   },
@@ -50,15 +46,17 @@ const commonConfig = {
       {
         test: /\.([jt]sx?)?$/,
         exclude: /node_modules/,
-        use: [
-          {
-            loader: 'esbuild-loader',
-            options: {
-              loader: 'tsx', // 可以是'ts'或'tsx'，取决于您的项目设置
-              target: 'es2015' // 目标浏览器或Node.js版本
-            }
+        use: {
+          loader: 'swc-loader',
+          options: {
+            jsc: {
+              parser: {
+                syntax: 'typescript'
+              }
+            },
+            minify: true
           }
-        ]
+        }
       },
       {
         test: /\.s?css$/,
