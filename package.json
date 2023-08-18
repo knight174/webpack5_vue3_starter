@@ -20,7 +20,7 @@
     "analyz": "npm run generateAnalyzFile; webpack-bundle-analyzer --port 8888 ./stats.json"
   },
   "lint-staged": {
-    "*.{vue,js,ts}": "eslint --fix"
+    "*.{vue,js,jsx,ts,tsx}": "eslint --fix"
   },
   "dependencies": {
     "@babel/runtime": "^7.18.6",

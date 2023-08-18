@@ -5,6 +5,9 @@ const devConfig = {
   cache: {
     type: 'filesystem'
   },
+  optimization: {
+    usedExports: true // 消除未使用的导出（exports）代码
+  },
   devtool: 'eval-cheap-module-source-map',
   devServer: {
     static: path.join(__dirname, 'dist'),

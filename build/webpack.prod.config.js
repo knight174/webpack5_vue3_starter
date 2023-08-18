@@ -15,8 +15,6 @@ const prodConfig = {
     maxAssetSize: 30000000
   },
   optimization: {
-    usedExports: true, // 消除未使用的导出（exports）代码
-    // 代码分割
     splitChunks: {
       chunks: 'all', // 同步或异步
       minSize: 0, // 最小分割大小
