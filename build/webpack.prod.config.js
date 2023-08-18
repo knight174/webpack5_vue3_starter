@@ -28,13 +28,21 @@ const prodConfig = {
           enforce: true, // 最高级别缓存（无视其他缓存组的优先级）
           priority: -10,
           name: 'vendors'
+          // name(module, chunks, cacheGroupKey) {
+          //   const moduleFileName = module
+          //     .identifier()
+          //     .split('/')
+          //     .reduceRight((item) => item)
+          //   const allChunksNames = chunks.map((item) => item.name).join('~')
+          //   return `${cacheGroupKey}/${allChunksNames}-${moduleFileName}`
+          // }
         },
-        // 公共模块
-        common: {
+        // 共用模块
+        commons: {
           minChunks: 2, // 至少在两个模块中引用的模块（将被分离到 common 代码中）
           priority: -20,
           reuseExistingChunk: true, // 模块缓存重用
-          name: 'common'
+          name: 'commons'
         }
       }
     }
